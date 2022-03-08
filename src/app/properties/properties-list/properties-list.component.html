@@ -1,0 +1,29 @@
+<div class="flex" *ngIf="propertyList$|async as listing">
+  <div class="w-1/4 max-h-screen overflow-y-scroll">
+    <div class="bg-green-700 px-8 py-4 text-white">
+      <div class="font-bold text-lg">{{listing.agentInfo.company}}</div>
+      <div>{{listing.agentInfo.firstname}} {{listing.agentInfo.lastname}}</div>
+    </div>
+    <div class="bg-green-500">
+
+    </div>
+    <div class="space-y-2 bg-base-300 pt-2 px-2">
+      <div *ngFor="let property of listing.records" class="w-full bg-white card">
+        <div class="flex justify-between items-center">
+          <div class="pl-8">
+            <div><span [ngClass]="{'fa-heart': property.favorite, 'fa-heart-o':!property.favorite}" class="fa"></span>  {{property.name}}</div>
+            <div>{{property.streetAddress}}</div>
+            <div class="text-sm text-gray-500">{{property.highValueAmenities.length}} high value amenities</div>
+          </div>
+          <div class="w-32">
+            <img [src]="property.photo" alt="">
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <div class="w-3/4">
+    <app-map></app-map>
+  </div>
+</div>
