@@ -30,6 +30,8 @@ export class MapComponent implements OnInit {
       style: environment.mapStyle,
       zoom: 15,
       center: [this.lng, this.lat],
+      bearing: 0,
+      pitch: 0,
       accessToken: environment.mapBoxToken
     });
 
